@@ -1,0 +1,16 @@
+header{
+    position: fixed;
+    font-weight: 400;
+    left: 0;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    background-color: #C3CFD9;
+    display: flex;
+    justify-content: center;
+    height: 67px;
+    align-items: center;
+    font-size: 30px;
+    color: #E8833A;
+   
+}
