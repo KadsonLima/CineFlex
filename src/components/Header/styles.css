@@ -10,7 +10,10 @@ header{
     justify-content: center;
     height: 67px;
     align-items: center;
+    
+   
+}
+header h3{
     font-size: 30px;
     color: #E8833A;
-   
 }

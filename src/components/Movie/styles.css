@@ -1,0 +1,66 @@
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 117px;
+    background-color: #DFE6ED;
+    border-top: 1px solid #9EADBA;;
+}
+
+h3{
+    font-weight: 400;
+    font-size: 24px;
+    color: #293845
+}
+
+.dia span{
+    font-size: 20px;
+
+}
+
+.horarios{
+    margin: 22px 0;
+    display: flex;
+}
+
+.hora{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 83px;
+    height: 43px;
+    background-color: #E8833A;
+    border-radius: 3px;
+    margin-right: 9px;
+    color: white;
+}
+
+footer .poster{
+    width:64px;
+    height: 89px;
+    background-color: white;
+    margin-left: 10px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+}
+
+.description{
+    margin-left: 14px;
+    font-weight: 400;
+    font-size: 26px;
+}
+.times h3{
+
+    text-align: center;
+    
+}
+
+.showtimes{
+    padding: 0 24px;
+    margin-bottom: 124px;
+}

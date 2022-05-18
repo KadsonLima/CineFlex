@@ -1,6 +1,7 @@
 import axios from 'axios';
 import react from 'react';
-import './styles.css'
+import './styles.css';
+import {Link} from 'react-router-dom';
 
 const URL = 'https://mock-api.driven.com.br/api/v5/cineflex/movies';
 
@@ -12,16 +13,17 @@ function Home() {
         axios.get(URL).then(e => {
 
             setPost(e.data)
-
         })
-    })
+    }, [])
 
     const filme = (post) ? post.map((e, index) => {
         return (
-            <div className='poster' key={index} id={e.id} >
+            <Link key={index} to={`/filme/${e.id}`}>
+            <div className='poster'  id={e.id} >
                 <img src={e.posterURL} width={130} alt={e.posterURL}></img>
 
             </div>
+            </Link>
         )
     },[]) : ''
 
