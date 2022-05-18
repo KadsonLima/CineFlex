@@ -8,7 +8,7 @@ footer{
     border-top: 1px solid #9EADBA;;
 }
 
-h3{
+h3{ 
     font-weight: 400;
     font-size: 24px;
     color: #293845
@@ -53,6 +53,8 @@ footer {
     margin-left: 14px;
     font-weight: 400;
     font-size: 26px;
+    display: flex;
+    flex-direction: column;
 }
 .times h3{
 
@@ -63,4 +65,35 @@ footer {
 .showtimes{
     padding: 0 24px;
     margin-bottom: 124px;
+}
+
+.accents{
+    width: 70%;
+    display:flex ; 
+    flex-wrap:wrap;
+    padding: 0 25px;
+
+}
+
+.seat{
+    width: 26px;
+    height: 26px;
+    background-color: #C3CFD9;
+    border: 1px solid #808F9D;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.true{
+    background-color: #8DD7CF ;
+    border: 1px solid #45BDB0;
+}
+
+.false{
+    background-color: #FBE192;
+    border: 1px solid #F7C52B
 }

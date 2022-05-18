@@ -3,6 +3,7 @@ import React from 'react';
 import './styles.css';
 import axios from 'axios';
 import Footer from './footer';
+import {Link} from 'react-router-dom';
 
 function Movie(){
 
@@ -21,16 +22,17 @@ function Movie(){
 
 
     const showTimes = (horario)? horario['days'].map(e =>{
-        console.log(horario)
         return (
                 <div className='dia' key={e.id}>
                     <span>{e.weekday} - {e.date}</span>
                     <div className='horarios'>
                         {e['showtimes'].map(e=>{
                             return (
+                                <Link to={`/sessao/${e.id}` }>
                                 <div className='hora'>
                                     {e.name}
                                 </div>
+                                </Link>
                             )
                         })}
                     </div>
