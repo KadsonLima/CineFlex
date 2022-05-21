@@ -4,6 +4,7 @@ import './styles.css';
 import axios from 'axios';
 import Footer from './footer';
 import {Link} from 'react-router-dom';
+import styled from 'styled-components';
 
 function Movie(){
 
@@ -26,9 +27,9 @@ function Movie(){
                 <div className='dia' key={e.id}>
                     <span>{e.weekday} - {e.date}</span>
                     <div className='horarios'>
-                        {e['showtimes'].map(e=>{
+                        {e['showtimes'].map((e,index)=>{
                             return (
-                                <Link to={`/sessao/${e.id}` }>
+                                <Link key={index} style={{textDecoration:'none'}}  to={`/sessao/${e.id}` }>
                                 <div className='hora'>
                                     {e.name}
                                 </div>
@@ -41,7 +42,7 @@ function Movie(){
     }): ''
 
     return (<div className='times'>
-            <h3>Selecione o horário</h3>
+            <Title>Selecione o horário</Title>
             <div className='showtimes'>
             {showTimes}
             </div>
@@ -50,5 +51,18 @@ function Movie(){
             </footer>
     </div>)
 }
+
+const Title = styled.div`
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #293845;
+
+`
 
 export default Movie;
