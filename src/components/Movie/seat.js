@@ -66,15 +66,15 @@ function Seat() {
     
     
     
-    console.log(forPost)
+    console.log(accents)
     const seats = (accents) ? (accents.seats.map((e, index) => {
         return (
             <Accento 
             key={index} 
             name="cadeira" 
-            onClick={() => {Selecionado(index+1, e.isAvailable)}} 
+            onClick={() => {Selecionado(e.id, e.isAvailable)}} 
             selecionado={e.isAvailable} 
-            acento={()=>Marca(index+1)}  >
+            acento={()=>Marca(e.id)}  >
                 <span >{e.name}</span>
             </Accento>
         )
