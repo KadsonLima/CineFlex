@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams , useNavigate } from 'react-router-dom';
 import Footer from './footer';
 import React from 'react';
 import axios from 'axios';
@@ -9,7 +9,7 @@ function Seat() {
     const [accents, setAccents] = React.useState(null);
     const [form, setForm] = React.useState({ nome: '', cpf: '' });
     const [cadeira, setCadeira] = React.useState([]);
-
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${a.sessao}/seats`)
@@ -18,7 +18,7 @@ function Seat() {
 
             })
 
-    }, [])
+    }, [a.sessao])
 
     function Selecionado(index, e){
         if(!e){
@@ -47,8 +47,26 @@ function Seat() {
             [e.target.name]: e.target.value
         })
     }
+
+    const forPost = {
+        'ids':cadeira,
+        'name':form.nome,
+        'cpf':form.cpf
+    }
+
+    function enviarEscolha(event){
+        event.preventDefault();
+        axios.post('https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many', forPost)
+         .then(e=>{
+             console.log("tudo certo", e);
+             navigate('/sucesso', {state:{cadeira:cadeira,name:accents['movie'].title, hora:accents, usr:{cpf:form.cpf, nome:form.nome}}})
+         })
+    }
+
     
-    console.log(cadeira, form)
+    
+    
+    console.log(forPost)
     const seats = (accents) ? (accents.seats.map((e, index) => {
         return (
             <Accento 
@@ -74,7 +92,7 @@ function Seat() {
                     <Bolinha cor={'#FBE192'} borda={'#F7C52B'}><div /><span>Indisponível</span></Bolinha>
                 </Selection>
                 <Formulario>
-                    <form>
+                    <form onSubmit={enviarEscolha}>
                         Nome do Comprador:
                         <input type="texto" name="nome" placeholder='Digite seu nome...' onChange={e => attForm(e)} value={form.nome}></input>
                         CPF do Comprador:
