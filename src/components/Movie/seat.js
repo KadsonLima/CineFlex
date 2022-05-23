@@ -30,9 +30,9 @@ function Seat() {
         }else{
             setCadeira([...cadeira, index])
         }
-        console.log(cadeira)
+        
     }
-
+    console.log(cadeira.name)
     function Marca(e){
         if(cadeira.includes(e)){
             return true;
@@ -49,32 +49,30 @@ function Seat() {
     }
 
     const forPost = {
-        'ids':cadeira,
+        'ids':cadeira.map(e=>{ return e.id}),
         'name':form.nome,
         'cpf':form.cpf
     }
-
+    console.log(forPost)
     function enviarEscolha(event){
         event.preventDefault();
         axios.post('https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many', forPost)
          .then(e=>{
              console.log("tudo certo", e);
-             navigate('/sucesso', {state:{cadeira:cadeira,name:accents['movie'].title, hora:accents, usr:{cpf:form.cpf, nome:form.nome}}})
+             navigate('/sucesso', {state:{cadeira:cadeira.map(e=>{ return e.name}),name:accents['movie'].title, hora:accents, usr:{cpf:form.cpf, nome:form.nome}}})
          })
     }
 
     
     
-    
-    console.log(accents)
     const seats = (accents) ? (accents.seats.map((e, index) => {
         return (
             <Accento 
             key={index} 
             name="cadeira" 
-            onClick={() => {Selecionado(e.id, e.isAvailable)}} 
+            onClick={() => {Selecionado(e, e.isAvailable)}} 
             selecionado={e.isAvailable} 
-            acento={()=>Marca(e.id)}  >
+            acento={()=>Marca(e)}  >
                 <span >{e.name}</span>
             </Accento>
         )

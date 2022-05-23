@@ -5,6 +5,7 @@ import styled from 'styled-components';
 function Sucess(){
     const state = useLocation();
     const filme = state.state
+    console.log(filme)
     return(
         <Tela>  
             <Title>Pedido feito com sucesso!</Title>
