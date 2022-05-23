@@ -60,6 +60,8 @@ footer {
     display: flex;
     flex-direction: column;
 }
+
+
 .times h3{
 
     text-align: center;
@@ -74,12 +76,3 @@ footer {
 
 
 
-.active{
-    background-color: #8DD7CF ;
-    border: 1px solid #45BDB0;
-}
-
-.false{
-    background-color: #FBE192;
-    border: 1px solid #F7C52B
-}

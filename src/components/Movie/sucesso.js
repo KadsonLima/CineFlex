@@ -16,10 +16,7 @@ function Sucess(){
             </Sessao>
             <Sessao>
                 <SubTitle>Ingressos</SubTitle>
-                
-            {filme.cadeira.map((e,index)=>{
-                return <span key={index}>Assento {e}</span>
-            })}
+            {filme.cadeira.map((e,index)=>{return <span key={index}>Assento {e}</span>})}
             </Sessao>
             <Sessao>
                 <SubTitle>Comprador</SubTitle>
